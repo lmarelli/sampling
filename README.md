@@ -27,6 +27,8 @@ When to Use Populations and Samples:
 
 ### Simple Random Sampling
 
+Consider a deck of playing cards as your population. If you want to select a few cards randomly, you might shuffle the deck and draw cards without looking. The randomness in the drawing process ensures that each card has an equal chance of being selected.
+
 Simple random sampling is a basic sampling method where every individual or element in the population has an equal chance of being included in the sample. The selection of each unit is independent of the selection of other units, and each possible sample has an equal probability of being chosen.
 
 1. Homogeneous Population:
@@ -49,9 +51,8 @@ Simple random sampling is a basic sampling method where every individual or elem
 * Scenario: When randomization is a key requirement for the study.
 * Rationale: Simple random sampling is the most straightforward method to achieve randomization, ensuring that each individual has an equal chance of being part of the sample.
 
-
-** Method: Use the sample method with the n parameter. **
-
+**OK, So how do we do it in Python?**
+Using `pandas` we can just call the `.sample` on a `DataFrame`
 ```
 import pandas as pd
 simple_random_sample = df.sample(n=5)
@@ -59,17 +60,45 @@ simple_random_sample = df.sample(n=5)
 
 ### Stratified Sampling:
 
-Definition:
+Suppose you want to study TV preferences. Rather than randomly selecting shows from all genres, you categorize shows into genres (comedy, drama, documentary). You then randomly select shows from each genre to create a sample that reflects the diversity of TV preferences.
+
 Stratified sampling is a statistical sampling technique where the population is divided into subgroups or strata based on certain characteristics, and then samples are randomly selected from each stratum. This method ensures that each subgroup is adequately represented in the final sample.
-* Description: Divide the population into subgroups (strata) based on certain characteristics and then randomly sample from each stratum.
-* Example: If studying a city's population, you might stratify by income level and then randomly sample from each income group.
-* Method: Use the ```groupby``` and apply functions.
 
-```
-import pandas as pd
-stratified_sample = df.groupby('stratum_column').apply(lambda x: x.sample(n=1))
-```
+1. Dividing into Strata: The population is divided into distinct subgroups or strata based on specific attributes or characteristics that are relevant to the study.
+2. Random Sampling within Strata: Samples are then randomly selected independently from each stratum. This helps ensure that each subgroup is proportionally represented in the final sample.
 
+When to Use Stratified Sampling:
+
+1. Heterogeneous Population: When the population is diverse and exhibits significant variability, and you want to ensure representation from each subgroup.
+2. Reducing Variability: It is particularly useful when there is a significant variability within the strata, and you want to control or reduce the overall variability of the sample.
+3. Improved Precision: When you want to increase the precision of your estimates by ensuring that each subgroup is adequately represented.
+4. Comparative Studies: In situations where you want to compare specific subgroups, ensuring that each subgroup is included in the sample can provide more meaningful insights.
+
+
+
+**OK, So how do we do it in Python?**
+We have a few options depending on what is the use case. 
+They all start the same way.
+1.  `groupby` by strata.
+2.  Then sample.
+* For equal counts from each subgroup:
+  ```
+  import pandas as pd
+  stratified_sample = df.groupby('stratum_column').sample(n=10)
+  ```
+* Proportional stratified sampling 40% of each stratum_column group counts from each subgroup:
+  ```
+  import pandas as pd
+  proportional_stratified_sample = df.groupby('stratum_column').sample(frac=.4)
+  ```
+* weighted stratified sampling. Assign weight to the sampling:
+  In this case we take a sample of `n=200 `, we dont group by the stratum_column but we assing it to the `weights` argument from the `.sample` method
+  ```
+  import pandas as pd
+  import numpy as np
+  
+  weighted_stratified_sample = df.sample(n=200, weights="stratum_column")
+  ```
 
 ### Systematic Sampling
 
