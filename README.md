@@ -82,21 +82,21 @@ They all start the same way.
 1.  `groupby` by strata.
 2.  Then sample.
 * For equal counts from each subgroup:
+  Let's say we need 10 samples from each sub-group
   ```
   import pandas as pd
   stratified_sample = df.groupby('stratum_column').sample(n=10)
   ```
 * Proportional stratified sampling 40% of each stratum_column group counts from each subgroup:
+  We need to sample 40% from each sub-group.
   ```
   import pandas as pd
   proportional_stratified_sample = df.groupby('stratum_column').sample(frac=.4)
   ```
 * weighted stratified sampling. Assign weight to the sampling:
-  In this case we take a sample of `n=200 `, we dont group by the stratum_column but we assing it to the `weights` argument from the `.sample` method
+  In this case, we take a sample of `n=200 `, we don't group by the stratum_column but we assign it to the `weights` argument from the `.sample` method
   ```
   import pandas as pd
-  import numpy as np
-  
   weighted_stratified_sample = df.sample(n=200, weights="stratum_column")
   ```
 
