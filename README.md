@@ -116,19 +116,45 @@ print(systematic_sample)
 
 ### Cluster Sampling:
 
-* Description: Divide the population into clusters, randomly select some clusters, and then sample all individuals within those clusters.
-* Example: If studying a country's population, you might use states as clusters and randomly select a few states to study.
-How it Works:
+Imagine you want to understand the variety of beer styles in a vast brewery that produces numerous types of beers.
+Treat each beer style as a cluster. For instance, you have clusters like "IPAs," "Stouts," "Lagers," "Sours," and so on.
+Randomly select a few beer styles (clusters) from the brewery's repertoire. Let's say you randomly choose "IPAs," "Stouts," and "Lagers."
+Now, for each chosen beer style (cluster), you decide to sample and taste all the different variations and brews within that specific style. This means you're exploring all the different IPAs, Stouts, and Lagers in your selected clusters.
+By doing this, you aim to gain insights into the diversity and characteristics of beers within the chosen beer styles, without having to taste every individual beer in the brewery.
 
-Dividing into Clusters: The population is divided into clusters, often based on geographical or administrative boundaries.
-Random Selection of Clusters: A subset of clusters is randomly selected from the entire population.
-Inclusion of All Elements: All individuals within the selected clusters are included in the sample.
+Cluster sampling is a statistical sampling technique where the population is divided into groups or clusters, and entire clusters are randomly selected for inclusion in the sample. Unlike stratified sampling, where individuals are selected from each subgroup, in cluster sampling, entire groups are chosen, and all individuals within those groups become part of the sample.
+
+1. Dividing into Clusters: The population is divided into clusters, often based on geographical or administrative boundaries.
+2. Random Selection of Clusters: A subset of clusters is randomly selected from the entire population.
+3. Inclusion of All Elements: All individuals within the selected clusters are included in the sample.
+
 When to Use Cluster Sampling:
 
-* Geographically Dispersed Population: When the population is spread out over a large geographical area, and it is more practical to sample entire clusters than individual elements.
-* Cost-Effective: Cluster sampling can be more cost-effective than other sampling methods, especially when it is expensive or logistically challenging to sample individual elements.
-* Natural Groupings: When the population naturally falls into identifiable groups or clusters, and these clusters are a relevant unit of analysis.
-* Time and Resource Constraints: In situations where time and resources are limited, and it is more feasible to randomly select and sample entire clusters.
+1. Geographically Dispersed Population: When the population is spread out over a large geographical area, and it is more practical to sample entire clusters than individual elements.
+2. Cost-Effective: Cluster sampling can be more cost-effective than other sampling methods, especially when it is expensive or logistically challenging to sample individual elements.
+3. Natural Groupings: When the population naturally falls into identifiable groups or clusters, and these clusters are a relevant unit of analysis.
+4. Time and Resource Constraints: In situations where time and resources are limited, and it is more feasible to randomly select and sample entire clusters.
 
-Example Scenario:
-Consider a study on public health in different regions of a country. Instead of sampling individuals from each household, you might choose to randomly select specific neighborhoods or towns (clusters) and include all individuals within those clusters in your sample. This approach can simplify data collection and reduce costs.
+Advantages and Considerations:
+
+* Efficiency: Cluster sampling can be more efficient in terms of time and resources compared to other sampling methods.
+* Logistical Simplicity: It may be easier to implement in situations where individual sampling is impractical.
+* Increased Variability: Variability within clusters may be lower compared to the entire population, potentially affecting the precision of estimates.
+
+**OK, So how do we do it in Python?**
+Some considerations
+* Cluster Sampling is a multistage sampling.
+* It may have 2 or more stages
+  1.  Randomly select the subgroups. This can be a list of unique values from the df
+  2.  Create a condition
+
+`
+import random
+#1 Step
+unique_values = list(df["column"].unique())
+sample = random.sample(unique_values, k=3)
+
+#2 Step
+condition = df['variety'].isin(sample)
+`
+
