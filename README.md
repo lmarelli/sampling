@@ -146,15 +146,24 @@ Some considerations
 * Cluster Sampling is a multistage sampling.
 * It may have 2 or more stages
   1.  Randomly select the subgroups. This can be a list of unique values from the df
-  2.  Create a condition
+  2.  Create a boolean condition for subseting.
+  3.  Remove unused categories
+  4.  Sample the cluster. Optional: add the `random_state` argument in the `.sample` method for model replicability
 
-`
+```
 import random
-#1 Step
+# 1st Step
 unique_values = list(df["column"].unique())
 sample = random.sample(unique_values, k=3)
 
-#2 Step
-condition = df['variety'].isin(sample)
-`
+# 2nd Step
+condition = df['column'].isin(sample)
+df_cluster = df[condition]
+
+# 3rd Step
+df_cluster['columns'] = df_cluster['columns'].cat.remove_unused_categories()
+
+# 4th Step
+df_cluster.groupby("columns").sample(n=5) #random_state=2000
+```
 
