@@ -1,6 +1,3 @@
-sampling/assets/beer_banner.png
-
-
 import pandas as pd
 import random
 #import numpy as np
