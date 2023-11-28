@@ -151,7 +151,7 @@ Some considerations
   4.  Sample the cluster. Optional: add the `random_state` argument in the `.sample` method for model applicability
 
 You may also check:
-[Beer: Cluster Sampling](/cluster_beer_sampling.md)
+[Beer: Cluster Sampling](/Cluster Sampling.md)
 
 ```
 import random
