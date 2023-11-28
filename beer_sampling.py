@@ -1,4 +1,4 @@
-/assets/images/electrocat.png
+sampling/assets/beer_banner.png
 
 
 import pandas as pd
