@@ -1,4 +1,4 @@
-assets/beer_banner.jpg
+/assets/beer_banner.jpg
 
 # Sampling in Python
 ## Intro
