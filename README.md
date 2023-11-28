@@ -1,4 +1,4 @@
-/beer_banner.jpg
+![GitHub Logo](/assets/images/tipos-cerveza.png)
 
 # Sampling in Python
 ## Intro
