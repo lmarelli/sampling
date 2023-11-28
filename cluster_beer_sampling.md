@@ -1,15 +1,14 @@
 ![Beer Banner](/assets/images/beer_banner.jpg)
 
 # Beer Sampling
-
-## Beer Cluster Sampling 
-[Beer Sampling Notebook](/assets/docs/beer_sampling_notebook.ipynb)
-
-
 ### Data
 beer_reviews.csv\
 Downloadable:\
 https://www.kaggle.com/datasets/rdoume/beerreviews/data
+
+### Beer Cluster Sampling 
+Notebook version of cluster sampling\
+[Beer Sampling Notebook](/assets/docs/beer_sampling_notebook.ipynb)
 
 ```
 import pandas as pd
