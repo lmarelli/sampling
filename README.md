@@ -1,5 +1,3 @@
-![Beer Banner](/assets/images/beer_banner.jpg)
-
 # Sampling in Python
 ## Intro
 
