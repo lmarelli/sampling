@@ -1,11 +1,19 @@
 ![Beer Banner](/assets/images/beer_banner.jpg)
 
+# Beer Sampling
+
+## Beer Cluster Sampling 
+[Beer Sampling Notebook](/beer_sampling_notebook.ipynb)
+
+
+### Data
+beer_reviews.csv\
+Downloadable:\
+https://www.kaggle.com/datasets/rdoume/beerreviews/data
+
 ```
 import pandas as pd
 import random
-#import numpy as np
-#import matplotlib.pyplot as plt
-#import seaborn as sns
 
 #1st Step: Load the CSV and take a peek
 beer = pd.read_csv("beer_reviews.csv", dtype={"beer_style": 'category'})
