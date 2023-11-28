@@ -3,7 +3,7 @@
 # Beer Sampling
 
 ## Beer Cluster Sampling 
-[Beer Sampling Notebook](/beer_sampling_notebook.ipynb)
+[Beer Sampling Notebook](/assets/docs/beer_sampling_notebook.ipynb)
 
 
 ### Data
