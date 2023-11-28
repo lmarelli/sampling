@@ -1,3 +1,6 @@
+![Beer Banner](/assets/images/beer_banner.jpg)
+
+```
 import pandas as pd
 import random
 #import numpy as np
@@ -27,3 +30,4 @@ beer_cluster['beer_style'] = beer_cluster['beer_style'].cat.remove_unused_catego
 cluster_sample = beer_cluster.groupby("beer_style").sample(n=5,random_state=2000) 
 print(cluster_sample)
 print(cluster_sample['beer_style'].value_counts())
+```
