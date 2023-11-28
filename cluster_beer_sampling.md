@@ -6,7 +6,7 @@ beer_reviews.csv\
 Downloadable:\
 https://www.kaggle.com/datasets/rdoume/beerreviews/data
 
-### Beer Cluster Sampling 
+### Beer: Cluster Sampling 
 Notebook version of cluster sampling\
 [Beer Sampling Notebook](/assets/docs/beer_sampling_notebook.ipynb)
 
