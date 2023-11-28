@@ -25,7 +25,7 @@ print(style_count.head())
 print(sample_style_count.head())
 ```
 
-# Equal counts
+## Equal counts
 In this variation, we sample 30 of each kind.
 
 ```
@@ -35,5 +35,27 @@ sample_style_EC= beer_sample['beer_style'].value_counts()
 print(sample_style_EC.head())
 ```
 
-# Weighted
-In this variation, we sample 30 of each kind.
+## Weighted
+In this variation, we sample 30 of each kind, but we assign a weight by its AVB
+if it has a higher ABV, it is more likely to get sampled.
+
+```
+import matplotlib.pyplot as plt 
+import numpy as np
+
+beer['beer_abv'].hist(bins=np.arange(0, 21, .5))
+plt.show()
+
+print(beer['beer_abv'].mean())
+
+# Sample 30 beers weighted by ABV
+beer_sample_w = beer.sample(n=30, weights="beer_abv")
+sample_style_w = beer_sample['beer_style'].value_counts()
+print(sample_style_w.head())
+
+# Plot YearsAtCompany from attrition_weight as a histogram
+beer_sample_w['beer_abv'].hist(bins=np.arange(0, 21, .5))
+plt.show()
+
+print(beer_sample_w['beer_abv'].mean())
+```
