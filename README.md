@@ -80,6 +80,9 @@ We have a few options depending on what is the use case.
 They all start the same way.
 1.  `groupby` by strata.
 2.  Then sample.
+
+You may also refer to: [Beer: Stratified Sampling](/Stratified_Sample.md) for a guided example.
+
 * For equal counts from each subgroup:
   Let's say we need 10 samples from each sub-group
   ```
@@ -98,7 +101,8 @@ They all start the same way.
   import pandas as pd
   weighted_stratified_sample = df.sample(n=200, weights="stratum_column")
   ```
-You may also refer to: [Beer: Stratified Sampling](/Stratified_Sample.md) for a guided example.
+  
+\
 
 ### Systematic Sampling
 
