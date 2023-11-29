@@ -2,8 +2,8 @@
 
 # Beer Sampling
 ### Data
-beer_reviews.csv\
-Downloadable:\
+The data set is: beer_reviews.csv\
+To proper run the code, you may download it at:\
 https://www.kaggle.com/datasets/rdoume/beerreviews/data
 
 ## Intro 
