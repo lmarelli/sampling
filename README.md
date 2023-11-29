@@ -75,7 +75,6 @@ When to Use Stratified Sampling:
 4. Comparative Studies: In situations where you want to compare specific subgroups, ensuring that each subgroup is included in the sample can provide more meaningful insights.
 
 
-
 **OK, So how do we do it in Python?**
 We have a few options depending on what is the use case. 
 They all start the same way.
@@ -99,6 +98,7 @@ They all start the same way.
   import pandas as pd
   weighted_stratified_sample = df.sample(n=200, weights="stratum_column")
   ```
+You may also refer to: [Beer: Stratified Sampling](/Stratified_Sample.md) for a guided example.
 
 ### Systematic Sampling
 
